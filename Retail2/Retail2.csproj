@@ -1,0 +1,738 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{282D5E76-DF61-432C-86C3-B8B17F0B9BC9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Retail2</RootNamespace>
+    <AssemblyName>Retail2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>retail2icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>Internet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.60.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.60.6\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.111.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\MessageBoard\Post.cs" />
+    <Compile Include="Classes\Products\Category.cs" />
+    <Compile Include="Classes\Enum.cs" />
+    <Compile Include="Classes\Orders\Order.cs" />
+    <Compile Include="Classes\Orders\OrderTab.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\Products\Product.cs" />
+    <Compile Include="Classes\UI\CommentUI.cs" />
+    <Compile Include="Classes\UI\Notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\UI\Notification.Designer.cs">
+      <DependentUpon>Notification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\UI\PostViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\UI\PostViewer.Designer.cs">
+      <DependentUpon>PostViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\UI\StockViewer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\UI\OrderViewer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\UI\UI3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\Users\Profile.cs" />
+    <Compile Include="Classes\UI\TableUI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\UI\Shower.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\UI\Table.cs" />
+    <Compile Include="Classes\UI\UI1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\UI\UI2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\Users\User.cs" />
+    <Compile Include="Classes\Zone.cs" />
+    <Compile Include="Forms\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\MesasAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\MesasAdmin.Designer.cs">
+      <DependentUpon>MesasAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Order\ShowData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Order\ShowData.Designer.cs">
+      <DependentUpon>ShowData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Products\AddCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Products\AddCategory.Designer.cs">
+      <DependentUpon>AddCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Products\AddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Products\AddProduct.Designer.cs">
+      <DependentUpon>AddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Products\EditCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Products\EditCategory.Designer.cs">
+      <DependentUpon>EditCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Products\EditProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Products\EditProduct.Designer.cs">
+      <DependentUpon>EditProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Profile\AddProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Profile\AddProfile.Designer.cs">
+      <DependentUpon>AddProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Profile\EditProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Profile\EditProfile.Designer.cs">
+      <DependentUpon>EditProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Settings\DummyWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Settings\DummyWindow.Designer.cs">
+      <DependentUpon>DummyWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Settings\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Settings\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Settings\WindowConfigurator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Settings\WindowConfigurator.Designer.cs">
+      <DependentUpon>WindowConfigurator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\User\AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\User\AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Administrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Administrar.Designer.cs">
+      <DependentUpon>Administrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\User\EditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\User\EditUser.Designer.cs">
+      <DependentUpon>EditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\MainFormAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\MainFormAdmin.Designer.cs">
+      <DependentUpon>MainFormAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Debug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Debug.Designer.cs">
+      <DependentUpon>Debug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Read\Orders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Read\Orders.Designer.cs">
+      <DependentUpon>Orders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\Faturacao\AddForeignProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\Faturacao\AddForeignProduct.Designer.cs">
+      <DependentUpon>AddForeignProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\Faturacao\CloseFatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\Faturacao\CloseFatura.Designer.cs">
+      <DependentUpon>CloseFatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\Faturacao\Faturação.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\Faturacao\Faturação.Designer.cs">
+      <DependentUpon>Faturação.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\MesasForms\MesaFatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\MesasForms\MesaFatura.Designer.cs">
+      <DependentUpon>MesaFatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\MesasForms\MesasDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\MesasForms\MesasDisplay.Designer.cs">
+      <DependentUpon>MesasDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\MessageBoardF\MessageBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\MessageBoardF\MessageBoard.Designer.cs">
+      <DependentUpon>MessageBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\OrderInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\OrderInfo.Designer.cs">
+      <DependentUpon>OrderInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\ProfileSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\ProfileSearch.Designer.cs">
+      <DependentUpon>ProfileSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\Stocks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\Stocks.Designer.cs">
+      <DependentUpon>Stocks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Welcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Welcome.Designer.cs">
+      <DependentUpon>Welcome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\PostManager.cs" />
+    <Compile Include="Managers\CategoryManager.cs" />
+    <Compile Include="Managers\OrderManager.cs" />
+    <Compile Include="Managers\ProductManager.cs" />
+    <Compile Include="Managers\ProfileManager.cs" />
+    <Compile Include="Managers\SettingsManager.cs" />
+    <Compile Include="Managers\TableManager.cs" />
+    <Compile Include="Managers\UserManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ControlMoverOrResizer.cs" />
+    <Compile Include="Utils\Data.cs" />
+    <Compile Include="Utils\Databases.cs" />
+    <Compile Include="Utils\Transformer.cs" />
+    <Compile Include="Utils\Imaging.cs" />
+    <Compile Include="Utils\Time.cs" />
+    <Compile Include="Utils\Transitions\IManagedType.cs" />
+    <Compile Include="Utils\Transitions\ITransitionType.cs" />
+    <Compile Include="Utils\Transitions\ManagedType_Color.cs" />
+    <Compile Include="Utils\Transitions\ManagedType_Double.cs" />
+    <Compile Include="Utils\Transitions\ManagedType_Float.cs" />
+    <Compile Include="Utils\Transitions\ManagedType_Int.cs" />
+    <Compile Include="Utils\Transitions\ManagedType_String.cs" />
+    <Compile Include="Utils\Transitions\Transition.cs" />
+    <Compile Include="Utils\Transitions\TransitionChain.cs" />
+    <Compile Include="Utils\Transitions\TransitionElement.cs" />
+    <Compile Include="Utils\Transitions\TransitionManager.cs" />
+    <Compile Include="Utils\Transitions\TransitionType_Acceleration.cs" />
+    <Compile Include="Utils\Transitions\TransitionType_Bounce.cs" />
+    <Compile Include="Utils\Transitions\TransitionType_CriticalDamping.cs" />
+    <Compile Include="Utils\Transitions\TransitionType_Deceleration.cs" />
+    <Compile Include="Utils\Transitions\TransitionType_EaseInEaseOut.cs" />
+    <Compile Include="Utils\Transitions\TransitionType_Flash.cs" />
+    <Compile Include="Utils\Transitions\TransitionType_Linear.cs" />
+    <Compile Include="Utils\Transitions\TransitionType_ThrowAndCatch.cs" />
+    <Compile Include="Utils\Transitions\TransitionType_UserDefined.cs" />
+    <Compile Include="Utils\Transitions\Utility.cs" />
+    <EmbeddedResource Include="Classes\UI\Notification.resx">
+      <DependentUpon>Notification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\UI\PostViewer.resx">
+      <DependentUpon>PostViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\UI\StockViewer.resx">
+      <DependentUpon>StockViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\UI\OrderViewer.resx">
+      <DependentUpon>OrderViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\UI\UI1.resx">
+      <DependentUpon>UI1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\UI\UI3.resx">
+      <DependentUpon>UI3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\UI\UI2.resx">
+      <DependentUpon>UI2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\MesasAdmin.resx">
+      <DependentUpon>MesasAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\Order\ShowData.resx">
+      <DependentUpon>ShowData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\Products\AddCategory.resx">
+      <DependentUpon>AddCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\Products\AddProduct.resx">
+      <DependentUpon>AddProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\Products\EditCategory.resx">
+      <DependentUpon>EditCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\Products\EditProduct.resx">
+      <DependentUpon>EditProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\Profile\AddProfile.resx">
+      <DependentUpon>AddProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\Profile\EditProfile.resx">
+      <DependentUpon>EditProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\Settings\DummyWindow.resx">
+      <DependentUpon>DummyWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\Settings\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\Settings\WindowConfigurator.resx">
+      <DependentUpon>WindowConfigurator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\User\AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\Administrar.resx">
+      <DependentUpon>Administrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\MainFormAdmin.resx">
+      <DependentUpon>MainFormAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\User\EditUser.resx">
+      <DependentUpon>EditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Debug.resx">
+      <DependentUpon>Debug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Read\Orders.resx">
+      <DependentUpon>Orders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\Faturacao\AddForeignProduct.resx">
+      <DependentUpon>AddForeignProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\Faturacao\CloseFatura.resx">
+      <DependentUpon>CloseFatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\Faturacao\Faturação.resx">
+      <DependentUpon>Faturação.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\MesasForms\MesaFatura.resx">
+      <DependentUpon>MesaFatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\MesasForms\MesasDisplay.resx">
+      <DependentUpon>MesasDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\MessageBoardF\MessageBoard.resx">
+      <DependentUpon>MessageBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\OrderInfo.resx">
+      <DependentUpon>OrderInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\ProfileSearch.resx">
+      <DependentUpon>ProfileSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\Stocks.resx">
+      <DependentUpon>Stocks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Welcome.resx">
+      <DependentUpon>Welcome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\max.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mesas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recibo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f167.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addbig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f743.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f745.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\savecolor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foldercolor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\noimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\overlay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\endrecibo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closewindow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paypal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Multibanco.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\corr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ERR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accountBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e713.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\g1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\r1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\y1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\g2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\r2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\y2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\greyball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\counter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nextarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\openwindow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loopmp4.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\end.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled %281%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\black.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loop.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\okstill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agreement.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ques.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sucess.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\retail2icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MetroFramework.txt" />
+    <None Include="Resources\addPost.png" />
+    <None Include="Resources\3dots.png" />
+    <None Include="Resources\postchar.png" />
+    <Content Include="retail2icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
+</Project>
